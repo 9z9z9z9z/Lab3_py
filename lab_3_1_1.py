@@ -3,7 +3,7 @@ def reducer(tupler):
     m = int(tupler[0])  # Числитель
     n = int(tupler[1])  # Знаменатель
     nod = 1
-    if m > n:
+    if m > n or m < 0 or n <= 0:
         print("Invalid argument")
     else:
         for i in range(2, m + 1):
@@ -12,5 +12,4 @@ def reducer(tupler):
     return (m / nod, n / nod)
 
 
-if __name__ == "__main__":
-    print(reducer((4, 100)))
+print(reducer((4, 100)))
