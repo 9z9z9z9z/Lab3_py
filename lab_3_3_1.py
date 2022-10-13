@@ -1,21 +1,23 @@
 import datetime
+from time import strftime
+
+import date_tools
+import date_calculator
 
 
 def nearest_date(*params):    # дд.мм.гггг
-      today = datetime.date.today()
-      today_int = today.day + today.month * 30 + today.year * 365
-      base = [0] * len(params)  # Массив дат
-      clone = list()  # Массив разностей дат
+      dates = [datetime.datetime.strptime(param, "%d.%m.%Y") for param in params]
+      dates.sort()
+      sorteddates = [datetime.datetime.strftime(ts, "%Y-%m-%d") for ts in dates]
 
-      for k in range(len(params)):
-            tmp = params[k].split(".")
-            base[k] += int(tmp[0]) + int(tmp[1]) * 30 + int(tmp[2]) * 365
-            clone.append(base[k] - today_int)
-            print(clone[k])
+      print(dates)
+      print(dates[1] - dates[0])
+      print(sorteddates)
 
-      base = (sorted(base, key=lambda num: clone))
+
 
       print("end")
 
 
-nearest_date("11.11.2031", "11.11.1990")
+
+nearest_date("11.11.2001", "11.11.1990", "11.11.2003", "11.11.2002")
