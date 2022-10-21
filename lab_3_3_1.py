@@ -1,7 +1,4 @@
 import datetime
-from time import strftime
-import date_tools
-import date_calculator
 
 
 def nearest_date(*params):  # дд.мм.гггг
@@ -10,10 +7,20 @@ def nearest_date(*params):  # дд.мм.гггг
     dates.append(today)
     dates.sort()
     index = dates.index(today)
-    try:
-          if
 
-    print("end")
+    if len(dates) == 1:
+        return None
+
+    elif index == 0:
+        return dates[index + 1]
+
+    elif index == len(dates) - 1:
+        return dates[index - 1]
+
+    elif abs(dates[index] - dates[index - 1]) < abs(dates[index] - dates[index + 1]):
+        return dates[index - 1]
+
+    else: return dates[index + 1]
 
 
-nearest_date("11.11.2001", "11.11.1990", "11.11.2003", "11.11.2002")
+print(str(nearest_date("05.09.2022", "07.09.2022").date()))
