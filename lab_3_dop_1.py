@@ -1,14 +1,3 @@
-from random import randint
-
-
-def randomize():
-    ans = list()
-    size = randint(1, 30)
-    for i in range(size):
-        ans.append(randint(0, 10))
-    return ans
-
-
 def check(x, base_list):
     for i in range(len(base_list) - 1):
         sum = 0
@@ -19,12 +8,19 @@ def check(x, base_list):
                 tmp.append(base_list[j])
             else: break
         if sum == x:
-            return tmp
+            print(*tmp, sep=" ")
+            return None
         else:
             continue
-    return False
+    print(False)
+    return None
 
-base = randomize()
-x = int(input("Input X\n"))
 
-print(check(x, [1, 2, 3]))
+base = []
+tmp_base = input().split()
+for i in tmp_base:
+    base.append(int(i))
+
+x = int(input())
+
+check(x, base)

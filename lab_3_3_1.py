@@ -20,7 +20,8 @@ def nearest_date(*params):  # дд.мм.гггг
     elif abs(dates[index] - dates[index - 1]) < abs(dates[index] - dates[index + 1]):
         return dates[index - 1]
 
-    else: return dates[index + 1]
+    else:
+        return dates[index + 1]
 
 
-print(str(nearest_date("05.09.2022", "07.09.2022").date()))
+print(str(nearest_date("01.01.2050", "12.04.2011", "31.12.1970").date()))
